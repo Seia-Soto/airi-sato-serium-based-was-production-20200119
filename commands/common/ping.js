@@ -3,6 +3,7 @@ module.exports.execute = (client, message, opts) => {
     responseTime: Math.round(client.ping)
   }))
 }
+
 module.exports.properties = {
   name: 'ping',
   permission: 'dev',
