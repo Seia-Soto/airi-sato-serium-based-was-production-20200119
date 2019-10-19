@@ -33,6 +33,7 @@ module.exports = async (client, message) => {
     missingPermission: !structures.permissions.compare(permissions, commands[message.command].properties.permission.flag)
   }
   const filtered = await structures.functions.findKeyByValue(filters, false)
+
   if (filtered) return message.reply(translations[settings.user.language].general.filtered[filtered])
 
   commands[message.command].execute(client, message, {

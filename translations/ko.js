@@ -12,6 +12,9 @@ module.exports = {
   commands: {
     ping: {
       pong: '퐁! {responseTime}ms가 소요되었습니다.'
+    },
+    help: {
+      title: '도움말'
     }
   }
 }

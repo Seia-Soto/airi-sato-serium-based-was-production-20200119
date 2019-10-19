@@ -1,25 +1,27 @@
+const structures = require('../../structures')
+
 const fields = []
 
 process.nextTick(() => {
   const commands = require('../')
 
-  const categories = Object.keys(commands)
+  Object.keys(commands).forEach(commandName => {
+    const command = commands[commandName]
 
-  for (let i = 0; i < categories.length; i++) {
-    const category = categories[i]
-    const commands = Object.keys(category)
+    let categoryIndex = fields.findIndex(field => field.name === structures.functions.uppercaseFirstChar(command.properties.category))
 
-    fields[category] = {
-      name: category.charAt(0).toUpperCase() + category.slice(1),
-      value: ''
+    if (categoryIndex < 0) {
+      fields.push({
+        name: structures.functions.uppercaseFirstChar(command.properties.category),
+        value: ''
+      })
+
+      categoryIndex = fields.length - 1
     }
-
-    for (let k = 0; k < commands.length; k++) {
-      const command = commands[k]
-
-      fields[category].value += `- ${command.properties.name}\n`
+    if (command.properties.name === commandName) {
+      fields[categoryIndex].value += `- ${command.properties.name}\n`
     }
-  }
+  })
 })
 
 module.exports.execute = (client, message, opts) => {
