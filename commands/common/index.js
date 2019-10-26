@@ -1,2 +1,6 @@
 module.exports.help = require('./help')
 module.exports.ping = require('./ping')
+module.exports.said = require('./said')
+module.exports.say = require('./say')
+module.exports.serverinfo = require('./serverinfo')
+module.exports.userinfo = require('./userinfo')

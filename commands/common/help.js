@@ -18,9 +18,8 @@ process.nextTick(() => {
 
       categoryIndex = fields.length - 1
     }
-    if (command.properties.name === commandName) {
-      fields[categoryIndex].value += `- ${command.properties.name}\n`
-    }
+
+    fields[categoryIndex].value += '`' + commandName + '` '
   })
 })
 
@@ -28,6 +27,7 @@ module.exports.execute = (client, message, opts) => {
   message.channel.send({
     embed: {
       title: opts.translations.title,
+      description: opts.translations.description,
       fields
     }
   })
@@ -35,6 +35,6 @@ module.exports.execute = (client, message, opts) => {
 
 module.exports.properties = {
   name: 'help',
-  permission: 'dev',
+  permission: 'common',
   aliases: ['h']
 }

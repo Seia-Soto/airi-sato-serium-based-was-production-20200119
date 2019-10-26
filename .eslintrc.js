@@ -24,7 +24,6 @@ module.exports = {
         VariableDeclarator: 'first'
       }
     ],
-    semi: 'error',
     'no-extend-native': 0 // NOTE: DO NOT OVERRIDE ORIGINAL FUNCTIONS.
   }
 }

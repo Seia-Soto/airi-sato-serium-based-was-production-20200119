@@ -1,9 +1,6 @@
 const Discord = require('discord.js')
 
-const commands = require('./commands')
 const handlers = require('./handlers')
-const structures = require('./structures')
-const translations = require('./translations')
 const config = require('./config')
 
 String.prototype.bind = function (parameters) {
@@ -30,7 +27,3 @@ client.once('ready', () => {
 })
 
 client.login(config.app.token)
-
-module.exports = {
-  client, commands, handlers, structures, translations, config
-}

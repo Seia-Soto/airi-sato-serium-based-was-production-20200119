@@ -6,6 +6,6 @@ module.exports.execute = (client, message, opts) => {
 
 module.exports.properties = {
   name: 'ping',
-  permission: 'dev',
+  permission: 'common',
   aliases: ['pong']
 }
