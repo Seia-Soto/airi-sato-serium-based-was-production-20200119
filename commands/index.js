@@ -3,6 +3,7 @@ const config = require('../config')
 const categories = {}
 
 categories.common = require('./common')
+categories.music = require('./music')
 
 Object.keys(categories).forEach(categoryName => {
   const category = categories[categoryName]

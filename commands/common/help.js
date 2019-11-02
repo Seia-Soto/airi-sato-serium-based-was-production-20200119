@@ -18,8 +18,9 @@ process.nextTick(() => {
 
       categoryIndex = fields.length - 1
     }
-
-    fields[categoryIndex].value += '`' + commandName + '` '
+    if (!fields[categoryIndex].value.includes(command.properties.name /* Original name */)) {
+      fields[categoryIndex].value += '`' + commandName + '` '
+    }
   })
 })
 

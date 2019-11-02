@@ -1,4 +1,6 @@
+module.exports.avatar = require('./avatar')
 module.exports.help = require('./help')
+module.exports.length = require('./length')
 module.exports.ping = require('./ping')
 module.exports.said = require('./said')
 module.exports.say = require('./say')
