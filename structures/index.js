@@ -1,5 +1,6 @@
 module.exports.database = require('./database')
 module.exports.functions = require('./functions')
+module.exports.music = require('./music')
 module.exports.permissions = require('./permissions')
 module.exports.settings = require('./settings')
 module.exports.utils = require('./utils')

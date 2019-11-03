@@ -129,6 +129,43 @@ Airi Sato를 사용해주셔서 감사합니다.`
     },
     length: {
       out: '접두사 및 명령어를 제외한 메세지의 길이는 {length}자예요.'
+    },
+    play: {
+      voiceChannelMissing: '음악을 재생하기 전에 먼저 음성 채널에 입장해주세요.',
+      searchQueryMissing: '재생할 음악을 검색하거나 링크를 첨부해주세요.',
+      nowPlaying: {
+        title: '지금 재생 중',
+        description: '[{title}]({videoURL})\n{author}, {duration}'
+      },
+      inactive: '현재 채널에 저를 제외해 아무도 없거나 어떠한 노래도 재생하고 있지 않아 음악을 비활성화했습니다. 음악을 들으려면 다시 명령어를 사용해주세요.',
+      queued: {
+        title: '재생목록 추가',
+        description: '[{title}]({videoURL})\n{author}, {duration}'
+      },
+      emptyQueue: '모든 음악을 재생하여 재생목록이 비었습니다.'
+    },
+    resume: {
+      resumed: '음악을 다시 재생 중이예요.',
+      notPlaying: '지금 아무것도 플레이하고 있지 않아요.'
+    },
+    pause: {
+      paused: '음악을 일시정지했어요.',
+      notPlaying: '지금 아무것도 플레이하고 있지 않아요.'
+    },
+    skip: {
+      skipped: '현재 재생 중인 음악을 건너뛰었습니다.',
+      notPlaying: '지금 아무것도 플레이하고 있지 않아요.'
+    },
+    stop: {
+      stopped: '현재 음악 세션을 취소했습니다.',
+      notPlaying: '지금 아무것도 플레이하고 있지 않아요.'
+    },
+    nowplaying: {
+      embed: {
+        title: '지금 재생 중',
+        description: '[{title}]({videoURL})\n{author}, {duration}'
+      },
+      notPlaying: '지금 아무것도 플레이하고 있지 않아요.'
     }
   }
 }

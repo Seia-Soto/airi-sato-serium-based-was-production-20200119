@@ -1,1 +1,6 @@
+module.exports.nowplaying = require('./nowplaying')
+module.exports.pause = require('./pause')
 module.exports.play = require('./play')
+module.exports.resume = require('./resume')
+module.exports.skip = require('./skip')
+module.exports.stop = require('./stop')

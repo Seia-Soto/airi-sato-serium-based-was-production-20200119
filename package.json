@@ -27,7 +27,9 @@
     "moment": "^2.24.0",
     "mysql2": "^1.7.0",
     "node-opus": "^0.3.2",
+    "restify": "^8.4.0",
     "ytdl-core": "^1.0.0",
+    "ytpl": "^0.1.17",
     "ytsr": "^0.1.9"
   },
   "devDependencies": {
