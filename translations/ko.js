@@ -146,11 +146,13 @@ Airi Sato를 사용해주셔서 감사합니다.`
     },
     resume: {
       resumed: '음악을 다시 재생 중이예요.',
-      notPlaying: '지금 아무것도 플레이하고 있지 않아요.'
+      notPlaying: '지금 아무것도 플레이하고 있지 않아요.',
+      alreadyPaused: '이미 음악을 재생 중입니다.'
     },
     pause: {
       paused: '음악을 일시정지했어요.',
-      notPlaying: '지금 아무것도 플레이하고 있지 않아요.'
+      notPlaying: '지금 아무것도 플레이하고 있지 않아요.',
+      alreadyPaused: '이미 음악이 일시정지되어 있어요.'
     },
     skip: {
       skipped: '현재 재생 중인 음악을 건너뛰었습니다.',
