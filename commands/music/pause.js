@@ -8,7 +8,7 @@ module.exports.execute = (client, message, opts) => {
     return message.channel.send(opts.translations.alreadyPaused)
   }
 
-  voiceConnection.dispatcher.resume()
+  voiceConnection.dispatcher.pause()
 
   message.channel.send(opts.translations.paused)
 }
