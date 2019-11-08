@@ -9,7 +9,7 @@ module.exports.execute = (client, message, opts) => {
   moment.locale(opts.translations._metadata.languageCode)
 
   if (voiceConnection) {
-    const video = server.nowplaying
+    const video = server.queue[0]
 
     message.channel.send({
       embed: {

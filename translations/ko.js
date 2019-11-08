@@ -166,6 +166,11 @@ Airi Sato를 사용해주셔서 감사합니다.`
         description: '[{title}]({videoURL})\n{author}, {duration}'
       },
       notPlaying: '지금 아무것도 플레이하고 있지 않아요.'
+    },
+    queue: {
+      emptyQueue: '재생목록이 비어 있어요.',
+      queue: '재생목록',
+      leftQueue: '재생목록에 현재 {left}곡이 담겨있어요.\n\n{queue}'
     }
   }
 }

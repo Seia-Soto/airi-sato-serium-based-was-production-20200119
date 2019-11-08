@@ -22,7 +22,7 @@ module.exports.execute = async (client, message, opts) => {
   videos.forEach(video => server.queue.push(video))
 
   const dispatch = async checkInactive => {
-    const video = await server.queue.shift()
+    const video = server.queue[0]
     const stream = await ytdl(video.video_url, {
       filter: 'audioonly'
     })
@@ -43,13 +43,14 @@ module.exports.execute = async (client, message, opts) => {
     })
 
     server.playing = true
-    server.nowplaying = video
 
     const dispatcher = voiceConnection.playStream(stream, {
       passes: 2,
       bitrate: 300
     })
     dispatcher.on('end', () => {
+      server.queue.shift() // NOTE: Shift the queue.
+
       if (server.queue.length) { // NOTE: If there is item in queue.
         return dispatch()
       } else {

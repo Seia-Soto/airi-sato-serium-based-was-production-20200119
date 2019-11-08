@@ -18,9 +18,8 @@ process.nextTick(() => {
 
       categoryIndex = fields.length - 1
     }
-    if (fields[categoryIndex].value.split(' ').find(item => item.replace(/`/gi, '') === command.properties.name /* Original name */)) {
-      fields[categoryIndex].value += '`' + commandName + '` '
-    }
+
+    fields[categoryIndex].value += '`' + commandName + '` '
   })
 })
 
