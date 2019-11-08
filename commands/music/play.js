@@ -59,7 +59,6 @@ module.exports.execute = async (client, message, opts) => {
         message.channel.send(opts.translations.emptyQueue)
 
         inactive(checkInactive)
-        voiceChannel.leave()
       }
     })
   }
