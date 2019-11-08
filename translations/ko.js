@@ -7,6 +7,9 @@ module.exports = {
   general: {
     filtered: {
       missingPermission: '이 명령어를 실행하기에는 당신의 권한이 부족합니다.'
+    },
+    error: {
+      command: '작업 처리 중 예외가 발생했어요.\n> {message}'
     }
   },
   commands: {

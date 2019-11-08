@@ -50,5 +50,11 @@ module.exports = async (client, message) => {
     countryCode: translations[settings.user.language].countryCode
   }
 
-  commands[message.command].execute(client, message, opts)
+  try {
+    commands[message.command].execute(client, message, opts)
+  } catch (error) {
+    message.channel.send(translations.general.error.command.bind({
+      message: error.message || error
+    }))
+  }
 }
