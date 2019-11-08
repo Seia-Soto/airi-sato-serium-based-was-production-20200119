@@ -9,7 +9,8 @@ module.exports.execute = (client, message, opts) => {
   }
 
   voiceConnection.dispatcher.resume()
-    .then(() => message.channel.send(opts.translations.paused))
+
+  message.channel.send(opts.translations.paused)
 }
 
 module.exports.properties = {
