@@ -100,7 +100,8 @@ Airi Sato를 사용해주셔서 감사합니다.`
         'us-east': ':flag_us: 미국 동부',
         'us-south': ':flag_us: 미국 남부',
         'us-west': ':flag_us: 미국 서부',
-        'eu-west': ':flag_eu: 서유럽'
+        'eu-west': ':flag_eu: 서유럽',
+        'south-korea': ':flag_kr: 대한민국'
       },
       defaultMessageNotification: '기본 알림 설정',
       defaultMessageNotifications: {
@@ -145,7 +146,8 @@ Airi Sato를 사용해주셔서 감사합니다.`
         title: '재생목록 추가',
         description: '[{title}]({videoURL})\n{author}, {duration}'
       },
-      emptyQueue: '모든 음악을 재생하여 재생목록이 비었습니다.'
+      emptyQueue: '모든 음악을 재생하여 재생목록이 비었습니다.',
+      playbackError: '재생 중 오류'
     },
     resume: {
       resumed: '음악을 다시 재생 중이예요.',

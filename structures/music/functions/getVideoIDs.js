@@ -4,6 +4,16 @@ const ytpl = require('ytpl') // NOTE: Playlist parser.
 
 const structures = require('../../../structures')
 
+const getInfo = async url => {
+  try {
+    const info = await ytdl.getInfo(url)
+
+    return info
+  } catch (error) {
+    return { error }
+  }
+}
+
 module.exports = async text => {
   text = text || ''
 
@@ -18,14 +28,14 @@ module.exports = async text => {
       const playlist = await ytpl(text)
 
       for (let i = 0; i < playlist.items.length; i++) {
-        const videoInfo = await ytdl.getInfo(playlist.items[i].url_simple)
+        const videoInfo = await getInfo(playlist.items[i].url_simple)
 
         videos.push(videoInfo)
       }
 
       return videos
     } else if (ytdl.validateURL(text)) { // NOTE: If the video URL is refering a video.
-      const videoInfo = await ytdl.getInfo(text)
+      const videoInfo = await getInfo(text)
 
       videos.push(videoInfo)
 
@@ -34,7 +44,7 @@ module.exports = async text => {
   } else { // NOTE: Use `else` to prevent running common search if the text is URL.
     const searchResults = await ytsr(text, { limit: 10 })
     const videoLink = await searchResults.items.find(item => item.type === 'video').link
-    const videoInfo = await ytdl.getInfo(videoLink)
+    const videoInfo = await getInfo(videoLink)
 
     videos.push(videoInfo)
 

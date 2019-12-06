@@ -23,32 +23,7 @@ module.exports.execute = async (client, message, opts) => {
 
   const dispatch = async checkInactive => {
     const video = server.queue[0]
-    const stream = await ytdl(video.video_url, {
-      filter: 'audioonly'
-    })
-
-    message.channel.send({
-      embed: {
-        title: opts.translations.nowPlaying.title,
-        description: opts.translations.nowPlaying.description.bind({
-          duration: moment.duration(video.length_seconds * 1000 /* Convert to ms */).humanize(),
-          title: video.title,
-          videoURL: video.video_url,
-          author: video.player_response.videoDetails.author
-        }),
-        thumbnail: {
-          url: video.player_response.videoDetails.thumbnail.thumbnails.slice(-1)[0].url
-        }
-      }
-    })
-
-    server.playing = true
-
-    const dispatcher = voiceConnection.playStream(stream, {
-      passes: 2,
-      bitrate: 300
-    })
-    dispatcher.on('end', () => {
+    const next = () => {
       server.queue.shift() // NOTE: Shift the queue.
 
       if (server.queue.length) { // NOTE: If there is item in queue.
@@ -60,7 +35,51 @@ module.exports.execute = async (client, message, opts) => {
 
         inactive(checkInactive)
       }
-    })
+    }
+
+    if (video.error) {
+      await message.channel.send({
+        embed: {
+          title: opts.translations.playbackError,
+          description: video.error.message
+        }
+      })
+
+      return next()
+    }
+
+    try {
+      const stream = await ytdl(video.video_url, {
+        filter: 'audioonly'
+      })
+
+      message.channel.send({
+        embed: {
+          title: opts.translations.nowPlaying.title,
+          description: opts.translations.nowPlaying.description.bind({
+            duration: moment.duration(video.length_seconds * 1000 /* Convert to ms */).humanize(),
+            title: video.title,
+            videoURL: video.video_url,
+            author: video.player_response.videoDetails.author
+          }),
+          thumbnail: {
+            url: video.player_response.videoDetails.thumbnail.thumbnails.slice(-1)[0].url
+          }
+        }
+      })
+
+      server.playing = true
+
+      const dispatcher = voiceConnection.playStream(stream, {
+        passes: 2,
+        bitrate: 300
+      })
+      dispatcher.on('end', next)
+    } catch (error) {
+      message.channel.send(error.message)
+
+      next()
+    }
   }
   const inactive = checkInactive => {
     client.clearInterval(checkInactive)

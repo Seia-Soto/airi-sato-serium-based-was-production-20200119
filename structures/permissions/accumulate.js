@@ -7,7 +7,8 @@ module.exports = member => {
     const rules =
       (!level.required.identify.length || level.required.identify.includes(member.id)) &&
       (!level.required.roles.length || member.roles.every(role => level.required.roles.includes(role.name))) &&
-      (!level.required.permissions.length || member.permissions.toArray().every(permission => level.required.permissions.includes(permission)))
+      (!level.required.permissions.length || member.permissions.toArray().every(permission => level.required.permissions.includes(permission))) &&
+      (!level.required.guilds.length || level.required.guilds.includes(member.guild.id))
     if (rules) {
       memberLevel = memberLevel | level.flag
     }

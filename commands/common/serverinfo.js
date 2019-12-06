@@ -75,9 +75,6 @@ module.exports.execute = (client, message, opts) => {
       url: message.guild.iconURL
     }
   }
-  embed.fields.forEach(field => {
-    field.inline = true
-  })
 
   return message.channel.send({ embed })
 }
